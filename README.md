@@ -36,8 +36,6 @@ The dataset contains approximately **50 days of retail transaction data** with t
 | Customer_ID | Unique customer identifier |
 | Country | Customer's country |
 
-**Note:** The original Online Retail dataset contains over 541,000 records. Due to SQL Server import limitations encountered during this project, approximately 65,000 records were successfully imported and used for analysis. All SQL queries, results, and business insights in this repository are based on the imported dataset to ensure reproducibility.
-
 ---
 
 ## 🧹 Data Cleaning
@@ -191,6 +189,12 @@ This project demonstrates how SQL can be used to transform raw retail transactio
 
 ---
 
+## Notes
+
+- This project is based on the imported dataset used during analysis.
+- All SQL queries and results are reproducible using the provided dataset.
+
+  
 ## 👩‍💻 Author
 
 **Aashi Jain**
