@@ -1,108 +1,176 @@
-# Online-Retail-Sales-Analysis-using-SQL
-SQL project analyzing online retail sales, customer behavior, product performance, and revenue trends.
 # 📊 Online Retail Sales Analysis using SQL
 
 ## 📌 Project Overview
 
-This project analyzes the sales performance of an online retail business using SQL. The analysis focuses on understanding revenue generation, customer purchasing behavior, product performance, geographical sales distribution, and daily sales trends.
+This project analyzes the sales performance of an online retail business using SQL Server. The objective is to extract meaningful business insights from transactional sales data by performing data cleaning, exploratory analysis, and solving real-world business questions using SQL.
 
-The project demonstrates SQL skills by solving real-world business problems using data exploration, data cleaning, aggregation, grouping, filtering, and subqueries.
+The analysis focuses on understanding sales performance, customer behavior, product performance, geographical distribution of sales, and daily revenue trends.
+
+---
+
+## 🎯 Objectives
+
+- Analyze overall sales performance.
+- Identify top-performing products and customers.
+- Understand customer purchasing behavior.
+- Analyze sales across different countries.
+- Study daily revenue trends.
+- Generate business insights and recommendations from the data.
+
+---
+
 ## 📂 Dataset Information
 
-- **Dataset:** Online Retail Dataset
-- **Source:** UCI Machine Learning Repository
-- **Duration:** Approximately 50 days (1 December 2010 – 20 January 2011)
-- **Records Used:** 65,535 transaction records
-- **Columns:**
-  - Invoice_No
-  - Stock_Code
-  - Description
-  - Quantity
-  - Invoice_Date
-  - Unit_Price
-  - Customer_ID
-  - Country
+**Dataset:** Online Retail Dataset
 
-The dataset contains transactional information for an online retail business, including product details, customer information, sales quantities, prices, invoice dates, and countries. It was used to analyze sales performance, customer behavior, product performance, geographical distribution, and daily revenue trends.
+The dataset contains approximately **50 days of retail transaction data** with the following columns:
+
+- Invoice Number
+- Stock Code
+- Product Description
+- Quantity
+- Invoice Date
+- Unit Price
+- Customer ID
+- Country
+
+---
 
 ## 🧹 Data Cleaning
 
-Before performing the analysis, the dataset was cleaned to improve the accuracy of the results.
+Before performing the analysis, the dataset was cleaned by:
 
-The following records were excluded:
-
-- Cancelled orders (`Invoice_No` starting with **'C'**)
-- Transactions with negative quantities
-- Transactions with zero unit price
-
-A SQL View named **`cleaned_retail`** was created to preserve the original dataset while performing the analysis on clean data.
+- Removing cancelled orders
+- Removing records with negative quantities
+- Removing transactions with zero unit price
+- Creating a cleaned SQL View for analysis
 
 ```sql
 CREATE VIEW cleaned_retail AS
 SELECT *
 FROM retail
 WHERE Invoice_No NOT LIKE 'C%'
-  AND Quantity > 0
-  AND Unit_Price > 0;
+AND Quantity > 0
+AND Unit_Price > 0;
 ```
 
-This resulted in **64,114** clean transaction records for analysis.
-## ❓ Business Questions Answered
+---
 
-This project answers the following business questions using SQL:
+# 📈 Business Questions Solved
 
-### 📈 Sales Performance
-1. What is the total revenue generated?
-2. Which countries generate the highest revenue?
-3. What is the average order value?
+## Sales Performance
 
-### 📦 Product Performance
-4. Which products generate the highest revenue?
-5. Which products are sold in the highest quantities?
-6. Which products appear in the highest number of orders?
-7. Which products have an above-average selling price?
-8. Which products generated above-average revenue?
+- What is the total revenue generated?
+- Which countries generate the highest revenue?
+- What is the average order value?
 
-### 👥 Customer Analysis
-9. Who are the highest spending customers?
-10. Which customers place the highest number of orders?
-11. Which countries have the highest number of customers?
+## Product Performance
 
-### 📅 Time Analysis
-12. How does daily revenue change over time?
+- Which products generate the highest revenue?
+- Which products are sold in the highest quantities?
+- Which products appear in the highest number of invoices?
+- Which products have above-average selling prices?
+- Which products generate above-average revenue?
 
-## 💻 SQL Skills Demonstrated
+## Customer Analysis
+
+- Who are the highest spending customers?
+- Which customers place the highest number of orders?
+
+## Geographical Analysis
+
+- Which countries have the highest number of customers?
+
+## Time Analysis
+
+- How does daily revenue change over time?
+
+---
+
+# 💻 SQL Concepts Used
 
 Throughout this project, the following SQL concepts were applied:
 
-- Data Exploration
-- Data Cleaning using SQL Views
-- Aggregate Functions (`SUM`, `AVG`, `COUNT`)
-- `GROUP BY`
-- `ORDER BY`
-- `HAVING`
-- Filtering with `WHERE`
+- SELECT
+- WHERE
+- ORDER BY
+- GROUP BY
+- HAVING
+- Aggregate Functions
+  - SUM()
+  - AVG()
+  - COUNT()
+- DISTINCT
+- TOP
+- Views
 - Subqueries
-- `DISTINCT`
 - Date Functions
-- Business-Oriented Data Analysis
+- Aliases
 
-## 📊 Business Insights
+---
 
-Based on the SQL analysis, the following key insights were identified:
+# 📊 Key Business Insights
 
-- The **United Kingdom** generated the highest sales revenue among all countries. However, profitability cannot be determined because the dataset does not include cost or expense information.
-- Products with the **highest revenue**, **highest quantity sold**, and **highest number of orders** were not always the same, indicating that high demand does not necessarily lead to the highest revenue.
-- Customers with the **highest spending** were different from those placing the **highest number of orders**, showing that purchase frequency and total spending are not always directly related.
-- The **United Kingdom** also had the largest customer base, but the available data does not indicate whether those customers were primarily high spenders or frequent buyers.
-- Daily revenue remained relatively stable during the observed period, with normal fluctuations and no consistent upward or downward trend.
+- The United Kingdom generated the highest sales revenue among all countries.
+- High-revenue products were not always the most frequently purchased products.
+- Customers with the highest spending were different from customers placing the highest number of orders.
+- Daily revenue fluctuated throughout the observed period without a consistent upward or downward trend.
+- The dataset contains revenue information but does not include costs or expenses; therefore, profitability cannot be determined.
 
-## 💡 Business Recommendations
+---
 
-Based on the analysis, the following recommendations can be considered:
+# 💡 Business Recommendations
 
-- Review the performance of products with consistently low demand and evaluate whether inventory or production levels can be optimized.
-- Continue promoting and maintaining the availability of high-demand products, even if they are not the highest revenue-generating products.
-- Analyze customer purchasing patterns further to understand the differences between high-spending and frequent customers, enabling more targeted marketing strategies.
-- Include product cost and operational expense data in future analyses to evaluate profitability in addition to revenue.
-- Monitor daily sales trends regularly to identify unusual fluctuations and support better business planning.
+- Review low-demand products and evaluate inventory or production levels to reduce unnecessary costs.
+- Continue promoting products with consistently high demand, even if they are not the highest revenue-generating products.
+- Include product cost information in future analyses to enable profitability-based decision making instead of relying solely on revenue.
+
+---
+
+# 🛠️ Tools Used
+
+- SQL Server Management Studio (SSMS)
+- SQL Server
+- GitHub
+
+---
+
+# 📁 Project Structure
+
+```
+Online-Retail-Sales-Analysis-SQL/
+│
+├── README.md
+├── Online Retail Dataset.csv
+├── SQL Queries.sql
+└── Project Screenshots/
+```
+
+---
+
+# 🚀 Skills Demonstrated
+
+- Data Cleaning
+- Exploratory Data Analysis (EDA)
+- Business Problem Solving
+- SQL Query Writing
+- Aggregate Functions
+- Data Aggregation
+- Business Insight Generation
+- Analytical Thinking
+
+---
+
+# 📌 Conclusion
+
+This project demonstrates how SQL can be used to transform raw transactional data into meaningful business insights. By combining data cleaning, aggregation, and analytical thinking, the project answers important business questions related to sales performance, customer behavior, product demand, and geographical trends.
+
+---
+
+## 👩‍💻 Author
+
+**Aashi Jain**
+
+Bachelor of Arts Programme (Computer Applications & Mathematics)
+
+Lady Shri Ram College for Women
